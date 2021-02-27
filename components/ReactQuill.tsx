@@ -2,7 +2,12 @@ import dynamic from 'next/dynamic';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
-export function ReactQuillForm(props: any) {
+interface QuillFormPropTypes {
+  onChange: Function,
+  placeholder: string,
+}
+
+export function ReactQuillForm(props: QuillFormPropTypes | any) {
   return (
     <ReactQuill formats={ReactQuillConfigs.formats} modules={ReactQuillConfigs.modules} {...props} />
   )
