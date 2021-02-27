@@ -2,6 +2,19 @@ import { fetchBase } from "./fetchBase"
 import { API_URL } from "../config";
 import cookie from "js-cookie"
 
+export interface UserDataTypes {
+  name: string,
+  username: string,
+  email: string,
+  hashedPassword?: string,
+  role?: number,
+  salt?: string,
+  about?: string,
+  photo?: any,
+  createdAt?: string,
+  updatedAt?: string,
+}
+
 export const signin = (payload: any) => {
   return fetchBase(`${API_URL}/auth/signin`, {
     method: 'post',
@@ -14,7 +27,6 @@ export const signin = (payload: any) => {
 }
 
 export const signup = (payload: any) => {
-console.log("🚀 ~ file: auth.ts ~ line 17 ~ signup ~ payload", payload)
   return fetchBase(`${API_URL}/auth/signup`, {
     method: 'post',
     headers: {
