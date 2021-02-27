@@ -22,4 +22,4 @@ export const AuthContextProvider = ({ children }: any) => {
   )
 }
 
-export const useAuthContextValue = () => useContext(authStoreContext);
+export const useAuthContextValue = (): AuthStateTypes => useContext(authStoreContext);
